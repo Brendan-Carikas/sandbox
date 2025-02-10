@@ -59,7 +59,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
           </IconButton>
           <Box 
             component="img"
-            src="/Invotra_rev.png"
+            src={`${process.env.PUBLIC_URL}/Invotra_rev.png`}
             alt="Invotra Logo"
             sx={{ 
               height: 24,
