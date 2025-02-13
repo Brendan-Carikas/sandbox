@@ -101,7 +101,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
               <ListItemText primary="Home" />
             </ListItem>
             <Divider sx={{ my: 1 }} />
-            {menuItems.slice(1).map((item) => (
+            {menuItems.filter(item => item.path !== '/').map((item) => (
               <ListItem
                 key={item.text}
                 onClick={() => {
