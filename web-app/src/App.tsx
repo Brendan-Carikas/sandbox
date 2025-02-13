@@ -16,7 +16,8 @@ import {
   Lists,
   DataVisualization,
   Forms,
-  Chatbot
+  Chatbot,
+  MCTable
 } from './pages/categories';
 
 const App: React.FC = () => {
@@ -38,6 +39,7 @@ const App: React.FC = () => {
             <Route path="/data-viz" element={<DataVisualization />} />
             <Route path="/forms" element={<Forms />} />
             <Route path="/chatbot" element={<Chatbot />} />
+            <Route path="/mc-table" element={<MCTable />} />
           </Routes>
         </MainLayout>
       </Router>

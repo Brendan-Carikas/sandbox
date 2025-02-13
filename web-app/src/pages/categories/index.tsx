@@ -1,8 +1,22 @@
 import React, { useState } from 'react';
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import CategoryTemplate from './CategoryTemplate';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableRow,
+  TableSortLabel,
+  TablePagination,
+  Checkbox,
+  Link,
+  IconButton,
+} from '@mui/material';
 import { 
   AppBar, 
-  Toolbar, 
+  Toolbar,
   Typography, 
   Button, 
   TextField, 
@@ -12,13 +26,18 @@ import {
   List,
   ListItem,
   ListItemText,
-  IconButton,
   Alert,
   Tabs,
   Tab,
   BottomNavigation,
-  BottomNavigationAction
+  BottomNavigationAction,
+  Menu,
+  MenuItem
 } from '@mui/material';
+import ViewColumnIcon from '@mui/icons-material/ViewColumn';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
+import DeleteIcon from '@mui/icons-material/Delete';
+import SearchIcon from '@mui/icons-material/Search';
 import MenuIcon from '@mui/icons-material/Menu';
 import RestoreIcon from '@mui/icons-material/Restore';
 import FavoriteIcon from '@mui/icons-material/Favorite';
@@ -313,6 +332,208 @@ export const Feedback: React.FC = () => (
   <Alert severity="warning">Warning message</Alert>
   <Alert severity="error">Error message</Alert>
 </Box>`
+      },
+      {
+        title: "Feedback Buttons",
+        description: "Interactive feedback buttons in different sizes.",
+        preview: (
+          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+            {/* Small Buttons */}
+            <Paper elevation={1} sx={{ p: 2 }}>
+              <Typography variant="subtitle2" sx={{ mb: 1.5, textAlign: 'center' }}>
+                Small Feedback
+              </Typography>
+              <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2 }}>
+                <IconButton 
+                  size="small"
+                  color="primary" 
+                  aria-label="thumbs up small"
+                  sx={{ 
+                    border: '1px solid',
+                    borderColor: 'primary.main',
+                    p: 1
+                  }}
+                >
+                  <ThumbUpIcon fontSize="small" />
+                </IconButton>
+                <IconButton 
+                  size="small"
+                  color="primary" 
+                  aria-label="thumbs down small"
+                  sx={{ 
+                    border: '1px solid',
+                    borderColor: 'primary.main',
+                    p: 1
+                  }}
+                >
+                  <ThumbDownIcon fontSize="small" />
+                </IconButton>
+              </Box>
+            </Paper>
+
+            {/* Medium Buttons */}
+            <Paper elevation={1} sx={{ p: 2.5 }}>
+              <Typography variant="subtitle1" sx={{ mb: 2, textAlign: 'center' }}>
+                Medium Feedback
+              </Typography>
+              <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2.5 }}>
+                <IconButton 
+                  color="primary" 
+                  aria-label="thumbs up medium"
+                  sx={{ 
+                    border: '1.5px solid',
+                    borderColor: 'primary.main',
+                    p: 1.5
+                  }}
+                >
+                  <ThumbUpIcon fontSize="medium" />
+                </IconButton>
+                <IconButton 
+                  color="primary" 
+                  aria-label="thumbs down medium"
+                  sx={{ 
+                    border: '1.5px solid',
+                    borderColor: 'primary.main',
+                    p: 1.5
+                  }}
+                >
+                  <ThumbDownIcon fontSize="medium" />
+                </IconButton>
+              </Box>
+            </Paper>
+
+            {/* Large Buttons */}
+            <Paper elevation={1} sx={{ p: 3 }}>
+              <Typography variant="h6" sx={{ mb: 2.5, textAlign: 'center' }}>
+                Large Feedback
+              </Typography>
+              <Box sx={{ display: 'flex', justifyContent: 'center', gap: 3 }}>
+                <IconButton 
+                  size="large"
+                  color="primary" 
+                  aria-label="thumbs up large"
+                  sx={{ 
+                    border: '2px solid',
+                    borderColor: 'primary.main',
+                    p: 2
+                  }}
+                >
+                  <ThumbUpIcon fontSize="large" />
+                </IconButton>
+                <IconButton 
+                  size="large"
+                  color="primary" 
+                  aria-label="thumbs down large"
+                  sx={{ 
+                    border: '2px solid',
+                    borderColor: 'primary.main',
+                    p: 2
+                  }}
+                >
+                  <ThumbDownIcon fontSize="large" />
+                </IconButton>
+              </Box>
+            </Paper>
+          </Box>
+        ),
+        code: `<Box sx={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+  {/* Small Buttons */}
+  <Paper elevation={1} sx={{ p: 2 }}>
+    <Typography variant="subtitle2" sx={{ mb: 1.5, textAlign: 'center' }}>
+      Small Feedback
+    </Typography>
+    <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2 }}>
+      <IconButton 
+        size="small"
+        color="primary" 
+        aria-label="thumbs up small"
+        sx={{ 
+          border: '1px solid',
+          borderColor: 'primary.main',
+          p: 1
+        }}
+      >
+        <ThumbUpIcon fontSize="small" />
+      </IconButton>
+      <IconButton 
+        size="small"
+        color="primary" 
+        aria-label="thumbs down small"
+        sx={{ 
+          border: '1px solid',
+          borderColor: 'primary.main',
+          p: 1
+        }}
+      >
+        <ThumbDownIcon fontSize="small" />
+      </IconButton>
+    </Box>
+  </Paper>
+
+  {/* Medium Buttons */}
+  <Paper elevation={1} sx={{ p: 2.5 }}>
+    <Typography variant="subtitle1" sx={{ mb: 2, textAlign: 'center' }}>
+      Medium Feedback
+    </Typography>
+    <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2.5 }}>
+      <IconButton 
+        color="primary" 
+        aria-label="thumbs up medium"
+        sx={{ 
+          border: '1.5px solid',
+          borderColor: 'primary.main',
+          p: 1.5
+        }}
+      >
+        <ThumbUpIcon fontSize="medium" />
+      </IconButton>
+      <IconButton 
+        color="primary" 
+        aria-label="thumbs down medium"
+        sx={{ 
+          border: '1.5px solid',
+          borderColor: 'primary.main',
+          p: 1.5
+        }}
+      >
+        <ThumbDownIcon fontSize="medium" />
+      </IconButton>
+    </Box>
+  </Paper>
+
+  {/* Large Buttons */}
+  <Paper elevation={1} sx={{ p: 3 }}>
+    <Typography variant="h6" sx={{ mb: 2.5, textAlign: 'center' }}>
+      Large Feedback
+    </Typography>
+    <Box sx={{ display: 'flex', justifyContent: 'center', gap: 3 }}>
+      <IconButton 
+        size="large"
+        color="primary" 
+        aria-label="thumbs up large"
+        sx={{ 
+          border: '2px solid',
+          borderColor: 'primary.main',
+          p: 2
+        }}
+      >
+        <ThumbUpIcon fontSize="large" />
+      </IconButton>
+      <IconButton 
+        size="large"
+        color="primary" 
+        aria-label="thumbs down large"
+        sx={{ 
+          border: '2px solid',
+          borderColor: 'primary.main',
+          p: 2
+        }}
+      >
+        <ThumbDownIcon fontSize="large" />
+      </IconButton>
+    </Box>
+  </Paper>
+</Box>`
       }
     ]}
   />
@@ -571,3 +792,432 @@ export const Chatbot: React.FC = () => (
     ]}
   />
 );
+
+interface TableData {
+  id: string;
+  title: string;
+  owner: string;
+  author: string;
+  menuItem: string;
+  contentType: string;
+  workflowState: string;
+  createdDate: string;
+  updatedDate: string;
+}
+
+const mockData: TableData[] = [
+  {
+    id: '1',
+    title: 'Getting Started Guide',
+    owner: 'John Doe',
+    author: 'Jane Smith',
+    menuItem: 'Documentation',
+    contentType: 'Manual Page',
+    workflowState: 'Published',
+    createdDate: '2024-01-15',
+    updatedDate: '2024-02-10',
+  },
+  {
+    id: '2',
+    title: 'Company Policy Update',
+    owner: 'HR Department',
+    author: 'Mike Johnson',
+    menuItem: 'Policies',
+    contentType: 'Policy',
+    workflowState: 'Draft',
+    createdDate: '2024-02-01',
+    updatedDate: '2024-02-11',
+  },
+  {
+    id: '3',
+    title: 'Product Launch Announcement',
+    owner: 'Marketing Team',
+    author: 'Sarah Wilson',
+    menuItem: 'News',
+    contentType: 'Article',
+    workflowState: 'Published',
+    createdDate: '2024-02-05',
+    updatedDate: '2024-02-12',
+  },
+  {
+    id: '4',
+    title: 'Employee Handbook 2024',
+    owner: 'HR Department',
+    author: 'Lisa Brown',
+    menuItem: 'HR',
+    contentType: 'Document',
+    workflowState: 'Review',
+    createdDate: '2024-01-20',
+    updatedDate: '2024-02-08',
+  },
+  {
+    id: '5',
+    title: 'Q1 Financial Report',
+    owner: 'Finance Team',
+    author: 'Robert Chen',
+    menuItem: 'Reports',
+    contentType: 'Report',
+    workflowState: 'Draft',
+    createdDate: '2024-02-08',
+    updatedDate: '2024-02-12',
+  },
+  {
+    id: '6',
+    title: 'Customer Support Guidelines',
+    owner: 'Support Team',
+    author: 'Emma Davis',
+    menuItem: 'Support',
+    contentType: 'Manual Page',
+    workflowState: 'Published',
+    createdDate: '2024-01-25',
+    updatedDate: '2024-02-09',
+  },
+  {
+    id: '7',
+    title: 'Project Management Best Practices',
+    owner: 'PMO',
+    author: 'Tom Anderson',
+    menuItem: 'Best Practices',
+    contentType: 'Guide',
+    workflowState: 'Published',
+    createdDate: '2024-01-18',
+    updatedDate: '2024-02-07',
+  },
+  {
+    id: '8',
+    title: 'Security Protocol Update',
+    owner: 'IT Department',
+    author: 'David Kim',
+    menuItem: 'Security',
+    contentType: 'Policy',
+    workflowState: 'Review',
+    createdDate: '2024-02-03',
+    updatedDate: '2024-02-11',
+  },
+  {
+    id: '9',
+    title: 'Brand Guidelines 2024',
+    owner: 'Marketing Team',
+    author: 'Rachel Green',
+    menuItem: 'Brand',
+    contentType: 'Guidelines',
+    workflowState: 'Published',
+    createdDate: '2024-01-10',
+    updatedDate: '2024-02-05',
+  },
+  {
+    id: '10',
+    title: 'Remote Work Policy',
+    owner: 'HR Department',
+    author: 'Mike Johnson',
+    menuItem: 'Policies',
+    contentType: 'Policy',
+    workflowState: 'Published',
+    createdDate: '2024-01-22',
+    updatedDate: '2024-02-08',
+  },
+  {
+    id: '11',
+    title: 'Sales Training Manual',
+    owner: 'Sales Team',
+    author: 'Chris Martinez',
+    menuItem: 'Training',
+    contentType: 'Manual Page',
+    workflowState: 'Draft',
+    createdDate: '2024-02-06',
+    updatedDate: '2024-02-12',
+  },
+  {
+    id: '12',
+    title: 'Product Roadmap 2024',
+    owner: 'Product Team',
+    author: 'Alex Wong',
+    menuItem: 'Product',
+    contentType: 'Document',
+    workflowState: 'Review',
+    createdDate: '2024-01-30',
+    updatedDate: '2024-02-10',
+  },
+  {
+    id: '13',
+    title: 'Customer Feedback Analysis',
+    owner: 'Customer Success',
+    author: 'Sophie Turner',
+    menuItem: 'Reports',
+    contentType: 'Report',
+    workflowState: 'Published',
+    createdDate: '2024-02-01',
+    updatedDate: '2024-02-11',
+  },
+  {
+    id: '14',
+    title: 'API Documentation',
+    owner: 'Development Team',
+    author: 'James Lee',
+    menuItem: 'Documentation',
+    contentType: 'Technical Doc',
+    workflowState: 'Published',
+    createdDate: '2024-01-28',
+    updatedDate: '2024-02-09',
+  },
+  {
+    id: '15',
+    title: 'Sustainability Report',
+    owner: 'ESG Team',
+    author: 'Maria Garcia',
+    menuItem: 'Reports',
+    contentType: 'Report',
+    workflowState: 'Draft',
+    createdDate: '2024-02-07',
+    updatedDate: '2024-02-12',
+  },
+  {
+    id: '16',
+    title: 'Data Privacy Guidelines',
+    owner: 'Legal Team',
+    author: 'Paul Thompson',
+    menuItem: 'Legal',
+    contentType: 'Guidelines',
+    workflowState: 'Review',
+    createdDate: '2024-02-04',
+    updatedDate: '2024-02-11',
+  },
+  {
+    id: '17',
+    title: 'Onboarding Checklist',
+    owner: 'HR Department',
+    author: 'Lisa Brown',
+    menuItem: 'HR',
+    contentType: 'Checklist',
+    workflowState: 'Published',
+    createdDate: '2024-01-15',
+    updatedDate: '2024-02-06',
+  }
+];
+
+export const MCTable: React.FC = () => {
+  const [selected, setSelected] = useState<string[]>([]);
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(5);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [columnMenuAnchor, setColumnMenuAnchor] = useState<null | HTMLElement>(null);
+  const [visibleColumns, setVisibleColumns] = useState<string[]>([
+    'title',
+    'owner',
+    'author',
+    'menuItem',
+    'contentType',
+    'workflowState',
+    'createdDate',
+    'updatedDate',
+  ]);
+
+  const allColumns = [
+    { id: 'title', label: 'Title' },
+    { id: 'owner', label: 'Owner' },
+    { id: 'author', label: 'Author' },
+    { id: 'menuItem', label: 'Menu Item' },
+    { id: 'contentType', label: 'Content Type' },
+    { id: 'workflowState', label: 'Workflow State' },
+    { id: 'createdDate', label: 'Created Date' },
+    { id: 'updatedDate', label: 'Updated Date' },
+  ];
+
+  const handleColumnMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
+    setColumnMenuAnchor(event.currentTarget);
+  };
+
+  const handleColumnMenuClose = () => {
+    setColumnMenuAnchor(null);
+  };
+
+  const handleColumnToggle = (columnId: string) => {
+    setVisibleColumns((prev) =>
+      prev.includes(columnId)
+        ? prev.filter((id) => id !== columnId)
+        : [...prev, columnId]
+    );
+  };
+
+  const handleSelectAllClick = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.checked) {
+      setSelected(mockData.map((row) => row.id));
+      return;
+    }
+    setSelected([]);
+  };
+
+  const handleClick = (id: string) => {
+    const selectedIndex = selected.indexOf(id);
+    let newSelected: string[] = [];
+
+    if (selectedIndex === -1) {
+      newSelected = newSelected.concat(selected, id);
+    } else if (selectedIndex === 0) {
+      newSelected = newSelected.concat(selected.slice(1));
+    } else if (selectedIndex === selected.length - 1) {
+      newSelected = newSelected.concat(selected.slice(0, -1));
+    } else if (selectedIndex > 0) {
+      newSelected = newSelected.concat(
+        selected.slice(0, selectedIndex),
+        selected.slice(selectedIndex + 1),
+      );
+    }
+
+    setSelected(newSelected);
+  };
+
+  const filteredData = mockData.filter((row) =>
+    Object.values(row).some((value) =>
+      value.toLowerCase().includes(searchQuery.toLowerCase())
+    )
+  );
+
+  return (
+    <CategoryTemplate
+      title="Manage content data table"
+      description="Interactive data table with search, filtering, and sorting functionality"
+      components={[
+        {
+          title: "Manage content data table",
+          description: "A comprehensive data table component with various features",
+          preview: (
+            <Box sx={{ width: '100%' }}>
+              <Paper sx={{ width: '100%', mb: 2 }}>
+                {/* Search and Actions Bar */}
+                <Box sx={{ p: 2, display: 'flex', gap: 2, alignItems: 'center' }}>
+                  <TextField
+                    size="small"
+                    placeholder="Search..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    InputProps={{
+                      startAdornment: (
+                        <SearchIcon sx={{ color: 'text.secondary', mr: 1 }} />
+                      ),
+                    }}
+                  />
+                  <IconButton
+                    onClick={handleColumnMenuOpen}
+                    size="small"
+                    title="Select columns"
+                  >
+                    <ViewColumnIcon />
+                  </IconButton>
+                  <Menu
+                    anchorEl={columnMenuAnchor}
+                    open={Boolean(columnMenuAnchor)}
+                    onClose={handleColumnMenuClose}
+                  >
+                    {allColumns.map((column) => (
+                      <MenuItem
+                        key={column.id}
+                        onClick={() => handleColumnToggle(column.id)}
+                      >
+                        <Checkbox
+                          checked={visibleColumns.includes(column.id)}
+                          size="small"
+                        />
+                        <ListItemText primary={column.label} />
+                      </MenuItem>
+                    ))}
+                  </Menu>
+                  <IconButton
+                    size="small"
+                    disabled={selected.length === 0}
+                    title="Bulk actions"
+                  >
+                    <MoreVertIcon />
+                  </IconButton>
+                  <IconButton
+                    size="small"
+                    color="error"
+                    disabled={selected.length === 0}
+                    title="Delete selected"
+                  >
+                    <DeleteIcon />
+                  </IconButton>
+                </Box>
+
+                {/* Table */}
+                <Table>
+                  <TableHead>
+                    <TableRow>
+                      <TableCell padding="checkbox">
+                        <Checkbox
+                          indeterminate={selected.length > 0 && selected.length < mockData.length}
+                          checked={selected.length === mockData.length}
+                          onChange={handleSelectAllClick}
+                        />
+                      </TableCell>
+                      {visibleColumns.map((column) => (
+                        <TableCell key={column}>
+                          <TableSortLabel>
+                            {column.charAt(0).toUpperCase() + column.slice(1)}
+                          </TableSortLabel>
+                        </TableCell>
+                      ))}
+                    </TableRow>
+                  </TableHead>
+                  <TableBody>
+                    {filteredData
+                      .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                      .map((row) => {
+                        const isSelected = selected.indexOf(row.id) !== -1;
+
+                        return (
+                          <TableRow
+                            hover
+                            onClick={() => handleClick(row.id)}
+                            role="checkbox"
+                            aria-checked={isSelected}
+                            tabIndex={-1}
+                            key={row.id}
+                            selected={isSelected}
+                          >
+                            <TableCell padding="checkbox">
+                              <Checkbox checked={isSelected} />
+                            </TableCell>
+                            {visibleColumns.map((column) => (
+                              <TableCell key={column}>
+                                {column === 'title' ? (
+                                  <Link href="#" underline="hover">
+                                    {row[column as keyof TableData]}
+                                  </Link>
+                                ) : column === 'author' ? (
+                                  <Link href="#" underline="hover">
+                                    {row[column as keyof TableData]}
+                                  </Link>
+                                ) : (
+                                  row[column as keyof TableData]
+                                )}
+                              </TableCell>
+                            ))}
+                          </TableRow>
+                        );
+                      })}
+                  </TableBody>
+                </Table>
+
+                {/* Pagination */}
+                <TablePagination
+                  rowsPerPageOptions={[5, 10, 25]}
+                  component="div"
+                  count={filteredData.length}
+                  rowsPerPage={rowsPerPage}
+                  page={page}
+                  onPageChange={(_, newPage) => setPage(newPage)}
+                  onRowsPerPageChange={(event) => {
+                    setRowsPerPage(parseInt(event.target.value, 10));
+                    setPage(0);
+                  }}
+                />
+              </Paper>
+            </Box>
+          ),
+          code: '// Full implementation code available upon request'
+        }
+      ]}
+    />
+  );
+};
