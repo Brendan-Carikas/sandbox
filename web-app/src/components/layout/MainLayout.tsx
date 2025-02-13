@@ -10,6 +10,7 @@ import TitleIcon from '@mui/icons-material/Title';
 import LayersIcon from '@mui/icons-material/Layers';
 import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
 import InsertChartIcon from '@mui/icons-material/InsertChart';
+import TableChartIcon from '@mui/icons-material/TableChart';
 import DynamicFormIcon from '@mui/icons-material/DynamicForm';
 import ChatIcon from '@mui/icons-material/Chat';
 import { useNavigate, useLocation } from 'react-router-dom';
@@ -42,7 +43,8 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
     { text: 'Lists', icon: <FormatListBulletedIcon />, path: '/lists' },
     { text: 'Data Visualization', icon: <InsertChartIcon />, path: '/data-viz' },
     { text: 'Forms', icon: <DynamicFormIcon />, path: '/forms' },
-    { text: 'Chatbot', icon: <ChatIcon />, path: '/chatbot' }
+    { text: 'Chatbot', icon: <ChatIcon />, path: '/chatbot' },
+    { text: 'MC Table', icon: <TableChartIcon />, path: '/mc-table' }
   ];
 
   return (
